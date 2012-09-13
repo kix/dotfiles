@@ -1,25 +1,36 @@
-if !which zsh
+echo "Installing git-flow..."
+wget --no-check-certificate -q -O - https://github.com/nvie/gitflow/raw/develop/contrib/gitflow-installer.sh | sudo bash > ~/init.log
+
+if [ ! -f `which zsh` ]
 then
-    echo "Installing zsh...\n"
-    sudo apt-get install zsh
+    echo "Installing zsh..."
+    sudo apt-get install zsh > ~/init.log
 fi
 
-if !which curl
+if [ ! -f `which curl` ]
 then
-    echo "Installing curl...\n"
-    sudo apt-get install curl
+    echo "Installing curl..."
+    sudo apt-get install curl > ~/init.log
 fi
 
-echo "Installing "
+echo -n "Installing "
 if [ -d ~/.oh-my-zsh ]
 then
-    echo "oh-my-zsh"
-    curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
+    echo -n "oh-my-zsh"
+    curl -s -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh > ~/init.log
 fi
 
-echo ", my config"
-curl https://raw.github.com/kix/myzsh/master/.zshrc > ~/.zshrc
+echo -n ", my config"
+curl -s https://raw.github.com/kix/myzsh/master/.zshrc > ~/.zshrc > ~/init.log
 
 echo ", my vim stuff"
-git clone https://github.com/kix/MyVim ~/.vim
-mv ~/.vim/.vimrc ~/
+if [ ! -d ~/.vim ] 
+then
+    git clone https://github.com/kix/MyVim ~/.vim > ~/init.log
+fi
+if [ ! -f ~/.vimrc ]
+then
+    mv ~/.vim/.vimrc ~/
+else
+    echo " ...not overwriting!"
+fi
