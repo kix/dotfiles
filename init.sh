@@ -5,6 +5,7 @@ if [ ! -f `which zsh` ]
 then
     echo "Installing zsh..."
     sudo apt-get install zsh > ~/init.log
+    chsh -s /bin/zsh `whoami`
 fi
 
 if [ ! -f `which curl` ]
