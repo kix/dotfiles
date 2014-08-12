@@ -1,3 +1,9 @@
+if [ ! -f `which zsh` ]
+then
+    echo "Installing git..."
+    sudo apt-get install git > ~/init.log
+fi
+
 echo "Installing git-flow..."
 wget --no-check-certificate -q -O - https://github.com/nvie/gitflow/raw/develop/contrib/gitflow-installer.sh | sudo bash > ~/init.log
 
