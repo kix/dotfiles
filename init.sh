@@ -1,4 +1,4 @@
-if [ ! -f `which zsh` ]
+if [ ! -f `which git` ]
 then
     echo "Installing git..."
     sudo apt-get install git > ~/init.log
