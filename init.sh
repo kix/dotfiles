@@ -28,7 +28,7 @@ then
 fi
 
 echo -n ", my config"
-curl -s https://github.com/kix/myzsh/raw/master/.zshrc > ~/.zshrc
+curl -s https://raw.githubusercontent.com/kix/myzsh/master/.zshrc > ~/.zshrc
 
 echo ", my vim stuff"
 if [ ! -d ~/.vim ] 
