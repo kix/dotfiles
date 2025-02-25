@@ -1,0 +1,40 @@
+[alias]
+    s = status
+    pop = stash pop
+    c = commit
+[user]
+    name = Stepan Anchugov
+    email = kixxx1@gmail.com
+[core]
+    editor = vim
+    excludesFile = ~/.gitignore
+[diff]
+    tool = diffsitter
+    algorithm = histogram
+    colorMoved = plain
+    mnemonicPrefix = true
+    renames = true
+[difftool]
+    prompt = false
+[difftool "diffsitter"]
+    cmd = diffsitter "$LOCAL" "$REMOTE"
+[init]
+    defaultBranch = main
+[column]
+    ui = auto
+[branch]
+    sort = -committerdate
+[tag]
+    sort = version:refname
+[push]
+    autoSetupRemote = true
+    followTags = true
+[fetch]
+    prune = true
+    pruneTags = true
+    all = true
+[rerere]
+    enabled = true
+    autoupdate = true
+[pull]
+    rebase = true
